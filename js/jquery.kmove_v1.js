@@ -3,8 +3,8 @@
         var opts = $.extend({}, $.fn.kMove.defaults, options),
             _this = this;
         function bindEvent(x,ev,func){
-            if(typeof opts.obj == "string"){
-                _this.on(ev,opts.obj,func);
+            if(opts.obj.length){
+                x.on(ev,opts.obj,func);
             }else{
                 x.on(ev,func);
             }
@@ -57,6 +57,7 @@
     }
 
     $.fn.kMove.defaults = {
+        obj : "",
         way : "both",
         limit : true
     }
