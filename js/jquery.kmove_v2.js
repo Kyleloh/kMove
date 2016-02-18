@@ -1,4 +1,10 @@
-;(function($){
+;(function(factory){
+    if(typeof define === "function" && define.amd && define.amd.jQuery){
+        define(["jquery"],factory);
+    }else{
+        factory(jQuery);
+    }
+}(function($){
     function Drag(opts,selector){
         var self = this;
         this.selector = selector;
@@ -8,7 +14,6 @@
             self.mdownFunc(e,self,_this);
         });
     }
-
     Drag.prototype = {
         bindEvent : function(x,ev,func){
             var obj = this.opts.obj,
@@ -70,8 +75,9 @@
     }
 
     $.fn.kMove = function(options){
-        var drag1  = new Drag(options,$(this));
+        var drag1  = new Drag(options,this);
         return this;
     }
 
-})(jQuery);
+}
+));
