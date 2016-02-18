@@ -15,9 +15,16 @@
 ```
 ####JS
 ```javascript
+    $(".item").kMove({
+        way : "both",   //horizontal, vertical 默认:both
+        limit : true    //true, false 默认true 不能移出父元素
+    });
+
+    //事件委托
     $(document).kMove({
         obj : ".item",
         way : "both",   //horizontal, vertical 默认:both
         limit : true    //true, false 默认true 不能移出父元素
     });
+
 ```
